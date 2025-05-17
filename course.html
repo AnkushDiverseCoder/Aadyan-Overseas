@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <title>Aadyan Overseas || The World’s Best Education Consultancy </title>
     <!-- favicons Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/resources/LOGO.png" />
@@ -71,7 +71,7 @@
                 const courseCard = document.createElement('div');
                 courseCard.className = 'course-card';
                 courseCard.setAttribute('data-type', "paid"); // Set data-type as "paid"
-                courseCard.setAttribute('data-category', "business-dev"); // Set data-category as "business-dev"
+                courseCard.setAttribute('data-category', "uk"); // Set data-category as "business-dev"
                 courseCard.style = `
                     flex: 1 1 300px;
                     background-color: white;
@@ -128,9 +128,48 @@
 
                 courseContainer.appendChild(courseCard);
             });
+
+            // Filtering functionality
+            const radios = document.querySelectorAll('input[name="myRadios"]');
+            const categoryCheckboxes = document.querySelectorAll(".category-checkbox");
+            const courses = document.querySelectorAll(".course-card");
+
+            function filterCourses() {
+                const selectedType = document.querySelector('input[name="myRadios"]:checked').value;
+                const selectedCategories = Array.from(categoryCheckboxes)
+                    .filter(cb => cb.checked)
+                    .map(cb => cb.value);
+
+                courses.forEach(course => {
+                    const courseType = course.getAttribute("data-type");
+                    const courseCategory = course.getAttribute("data-category");
+
+                    // Match price type
+                    const typeMatch = selectedType === courseType;
+
+                    // Match category (show all if none selected)
+                    const categoryMatch =
+                        selectedCategories.length === 0 || selectedCategories.includes(courseCategory);
+
+                    if (typeMatch && categoryMatch) {
+                        course.style.display = "";
+                    } else {
+                        course.style.display = "none";
+                    }
+                });
+            }
+
+            // Add event listeners
+            radios.forEach(radio => radio.addEventListener("change", filterCourses));
+            categoryCheckboxes.forEach(cb => cb.addEventListener("change", filterCourses));
+
+            // Initial filter on load
+            filterCourses();
         });
     </script>
 </head>
+
+
 
 <body class="custom-cursor">
     <div class="custom-cursor__cursor"></div>
@@ -310,23 +349,23 @@
                                         style="list-style: none; padding: 0; margin: 0;">
                                         <li style="display: flex; align-items: center; margin-bottom: 20px;">
                                             <label style="cursor: pointer; display: flex; align-items: center;">
-                                                <input type="checkbox" class="category-checkbox" value="accounting"
+                                                <input type="checkbox" class="category-checkbox" value="uk"
                                                     style="position: absolute; opacity: 0; width: 0; height: 0; margin: 0;" />
                                                 <div class="course-grid__list-check" style="
-          position: relative;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          height: 18px;
-          width: 18px;
-          border: 2px solid #7d3cff;
-          border-radius: 6px;
-          transition: all 0.15s ease-in-out;
-          cursor: pointer;
-        "></div>
+                                                    position: relative;
+                                                    display: inline-flex;
+                                                    align-items: center;
+                                                    justify-content: center;
+                                                    height: 18px;
+                                                    width: 18px;
+                                                    border: 2px solid #7d3cff;
+                                                    border-radius: 6px;
+                                                    transition: all 0.15s ease-in-out;
+                                                    cursor: pointer;
+                                                    "></div>
                                                 <p class="course-grid__list-text"
                                                     style="margin: 0 0 0 8px; font-size: 16px; line-height: 16px;">
-                                                    Accounting & Finance (12)
+                                                    UK
                                                 </p>
                                             </label>
                                         </li>
@@ -336,135 +375,20 @@
                                                 <input type="checkbox" class="category-checkbox" value="programming"
                                                     style="position: absolute; opacity: 0; width: 0; height: 0; margin: 0;" />
                                                 <div class="course-grid__list-check" style="
-          position: relative;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          height: 18px;
-          width: 18px;
-          border: 2px solid #7d3cff;
-          border-radius: 6px;
-          transition: all 0.15s ease-in-out;
-          cursor: pointer;
-        "></div>
+                                                    position: relative;
+                                                    display: inline-flex;
+                                                    align-items: center;
+                                                    justify-content: center;
+                                                    height: 18px;
+                                                    width: 18px;
+                                                    border: 2px solid #7d3cff;
+                                                    border-radius: 6px;
+                                                    transition: all 0.15s ease-in-out;
+                                                    cursor: pointer;
+                                                        "></div>
                                                 <p class="course-grid__list-text"
                                                     style="margin: 0 0 0 8px; font-size: 16px; line-height: 16px;">
                                                     Programming & Tech (25)
-                                                </p>
-                                            </label>
-                                        </li>
-
-                                        <li style="display: flex; align-items: center; margin-bottom: 20px;">
-                                            <label style="cursor: pointer; display: flex; align-items: center;">
-                                                <input type="checkbox" class="category-checkbox" value="art"
-                                                    style="position: absolute; opacity: 0; width: 0; height: 0; margin: 0;" />
-                                                <div class="course-grid__list-check" style="
-          position: relative;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          height: 18px;
-          width: 18px;
-          border: 2px solid #7d3cff;
-          border-radius: 6px;
-          transition: all 0.15s ease-in-out;
-          cursor: pointer;
-        "></div>
-                                                <p class="course-grid__list-text"
-                                                    style="margin: 0 0 0 8px; font-size: 16px; line-height: 16px;">
-                                                    Art & Design (59)
-                                                </p>
-                                            </label>
-                                        </li>
-
-                                        <li style="display: flex; align-items: center; margin-bottom: 20px;">
-                                            <label style="cursor: pointer; display: flex; align-items: center;">
-                                                <input type="checkbox" class="category-checkbox" value="health"
-                                                    style="position: absolute; opacity: 0; width: 0; height: 0; margin: 0;" />
-                                                <div class="course-grid__list-check" style="
-          position: relative;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          height: 18px;
-          width: 18px;
-          border: 2px solid #7d3cff;
-          border-radius: 6px;
-          transition: all 0.15s ease-in-out;
-          cursor: pointer;
-        "></div>
-                                                <p class="course-grid__list-text"
-                                                    style="margin: 0 0 0 8px; font-size: 16px; line-height: 16px;">
-                                                    Health & Fitness (24)
-                                                </p>
-                                            </label>
-                                        </li>
-
-                                        <li style="display: flex; align-items: center; margin-bottom: 20px;">
-                                            <label style="cursor: pointer; display: flex; align-items: center;">
-                                                <input type="checkbox" class="category-checkbox" value="sales"
-                                                    style="position: absolute; opacity: 0; width: 0; height: 0; margin: 0;" />
-                                                <div class="course-grid__list-check" style="
-          position: relative;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          height: 18px;
-          width: 18px;
-          border: 2px solid #7d3cff;
-          border-radius: 6px;
-          transition: all 0.15s ease-in-out;
-          cursor: pointer;
-        "></div>
-                                                <p class="course-grid__list-text"
-                                                    style="margin: 0 0 0 8px; font-size: 16px; line-height: 16px;">
-                                                    Sales & Marketing (40)
-                                                </p>
-                                            </label>
-                                        </li>
-
-                                        <li style="display: flex; align-items: center; margin-bottom: 20px;">
-                                            <label style="cursor: pointer; display: flex; align-items: center;">
-                                                <input type="checkbox" class="category-checkbox" value="user-research"
-                                                    style="position: absolute; opacity: 0; width: 0; height: 0; margin: 0;" />
-                                                <div class="course-grid__list-check" style="
-          position: relative;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          height: 18px;
-          width: 18px;
-          border: 2px solid #7d3cff;
-          border-radius: 6px;
-          transition: all 0.15s ease-in-out;
-          cursor: pointer;
-        "></div>
-                                                <p class="course-grid__list-text"
-                                                    style="margin: 0 0 0 8px; font-size: 16px; line-height: 16px;">
-                                                    User Research (40)
-                                                </p>
-                                            </label>
-                                        </li>
-
-                                        <li style="display: flex; align-items: center; margin-bottom: 0;">
-                                            <label style="cursor: pointer; display: flex; align-items: center;">
-                                                <input type="checkbox" class="category-checkbox" value="business-dev"
-                                                    style="position: absolute; opacity: 0; width: 0; height: 0; margin: 0;" />
-                                                <div class="course-grid__list-check" style="
-          position: relative;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          height: 18px;
-          width: 18px;
-          border: 2px solid #7d3cff;
-          border-radius: 6px;
-          transition: all 0.15s ease-in-out;
-          cursor: pointer;
-        "></div>
-                                                <p class="course-grid__list-text"
-                                                    style="margin: 0 0 0 8px; font-size: 16px; line-height: 16px;">
-                                                    Business Development (30)
                                                 </p>
                                             </label>
                                         </li>
@@ -824,48 +748,6 @@
         <span class="scroll-to-top__wrapper"><span class="scroll-to-top__inner"></span></span>
         <span class="scroll-to-top__text"> Go Back Top</span>
     </a>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const radios = document.querySelectorAll('input[name="myRadios"]');
-            const categoryCheckboxes = document.querySelectorAll(".category-checkbox");
-            const courses = document.querySelectorAll(".course-card");
-
-            function filterCourses() {
-                const selectedType = document.querySelector('input[name="myRadios"]:checked').value;
-                const selectedCategories = Array.from(categoryCheckboxes)
-                    .filter(cb => cb.checked)
-                    .map(cb => cb.value);
-
-                courses.forEach(course => {
-                    const courseType = course.getAttribute("data-type");
-                    const courseCategory = course.getAttribute("data-category");
-
-                    // Match price type
-                    const typeMatch = selectedType === courseType;
-
-                    // Match category (show all if none selected)
-                    const categoryMatch =
-                        selectedCategories.length === 0 || selectedCategories.includes(courseCategory);
-
-                    if (typeMatch && categoryMatch) {
-                        course.style.display = "";
-                    } else {
-                        course.style.display = "none";
-                    }
-                });
-            }
-
-            // Add event listeners
-            radios.forEach(radio => radio.addEventListener("change", filterCourses));
-            categoryCheckboxes.forEach(cb => cb.addEventListener("change", filterCourses));
-
-            // Initial filter on load
-            filterCourses();
-        });
-    </script>
-
-
 
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>

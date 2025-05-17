@@ -4,25 +4,24 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shared on THEMELOCK.COM -  Course Grid || Fistudy || Fistudy HTML 5 Template </title>
+    
+    <title>Aadyan Overseas || The World’s Best Education Consultancy </title>
     <!-- favicons Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/resources/LOGO.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/resources/LOGO.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/resources/LOGO.png" />
     <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
     <meta name="description" content="fistudy HTML 5 Template " />
 
     <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
 
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap"
-        rel="stylesheet">
-
+        rel="stylesheet" />
 
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/animate.min.css" />
@@ -32,13 +31,12 @@
     <link rel="stylesheet" href="assets/css/jarallax.css" />
     <link rel="stylesheet" href="assets/css/jquery.magnific-popup.css" />
     <link rel="stylesheet" href="assets/css/odometer.min.css" />
-    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/flaticon.css" />
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
     <link rel="stylesheet" href="assets/css/owl.theme.default.min.css" />
     <link rel="stylesheet" href="assets/css/nice-select.css" />
     <link rel="stylesheet" href="assets/css/jquery-ui.css" />
     <link rel="stylesheet" href="assets/css/aos.css" />
-
 
     <link rel="stylesheet" href="assets/css/module-css/slider.css" />
     <link rel="stylesheet" href="assets/css/module-css/footer.css" />
@@ -63,10 +61,78 @@
     <!-- template styles -->
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
+    <script type="module">
+        import uk from './assets/js/courseData.js'; // Adjust the path as necessary
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const courseContainer = document.getElementById('course-container');
+
+            uk.forEach(course => {
+                const courseCard = document.createElement('div');
+                courseCard.className = 'course-card';
+                courseCard.setAttribute('data-type', "paid"); // Set data-type as "paid"
+                courseCard.setAttribute('data-category', "business-dev"); // Set data-category as "business-dev"
+                courseCard.style = `
+                    flex: 1 1 300px;
+                    background-color: white;
+                    border-radius: 10px;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+                    padding: 20px;
+                    box-sizing: border-box;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    min-width: 280px;
+                `;
+
+                courseCard.innerHTML = `
+                    <h3 style="font-size: 18px; margin: 0 0 10px; color: #111">${course.title}</h3>
+                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                        <img src="${course.image.university_logo}" alt="University Logo" style="
+                            width: 30px;
+                            height: 30px;
+                            border-radius: 5px;
+                            margin-right: 10px;
+                        " />
+                        <p style="
+                            margin: 0;
+                            font-size: 14px;
+                            color: #444;
+                            flex: 1;
+                        ">${course.university}</p>
+                        <img src="${course.image.instructor_avatar}" alt="Instructor" style="
+                            width: 30px;
+                            height: 30px;
+                            border-radius: 50%;
+                            object-fit: cover;
+                        " />
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <div style="
+                            font-size: 16px;
+                            font-weight: 600;
+                            color: #7d3cff;
+                        ">${course.price}</div>
+                        <div style="
+                            background-color: #e5dcff;
+                            color: #7d3cff;
+                            font-size: 12px;
+                            padding: 4px 8px;
+                            border-radius: 5px;
+                            font-weight: 600;
+                            cursor: pointer;
+                            user-select: none;
+                        ">${course.category || "General"}</div>
+                    </div>
+                `;
+
+                courseContainer.appendChild(courseCard);
+            });
+        });
+    </script>
 </head>
 
 <body class="custom-cursor">
-
     <div class="custom-cursor__cursor"></div>
     <div class="custom-cursor__cursor-two"></div>
 
@@ -77,9 +143,6 @@
         <div></div>
     </div>
     <!--End Preloader-->
-
-
-
 
     <div class="page-wrapper">
         <header class="main-header main-header-three">
@@ -125,7 +188,7 @@
                             <div class="main-menu__left">
                                 <div class="main-menu__logo">
                                     <a href="index.html"><img src="assets/images/resources/LOGO.png" alt="" width="150"
-                                            height="50"></a>
+                                            height="80"></a>
                                 </div>
                             </div>
 
@@ -137,6 +200,7 @@
                                     <li><a href="course.html">Course</a></li>
                                     <li><a href="country.html">Country</a></li>
                                     <li><a href="blog.html">Blog</a></li>
+                                    <li><a href="referandearn.html">Refer</a></li>
                                     <li><a href="contact.html">Contact</a></li>
                                 </ul>
                             </div>
@@ -155,20 +219,21 @@
         </header>
 
         <div class="stricky-header stricked-menu main-menu">
-            <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
-        </div><!-- /.stricky-header -->
-
-
+            <div class="sticky-header__content"></div>
+            <!-- /.sticky-header__content -->
+        </div>
+        <!-- /.stricky-header -->
 
         <!--Page Header Start-->
         <section class="page-header">
-            <div class="page-header__bg" style="background-image: url(assets/images/shapes/page-header-bg-shape.png);">
-            </div>
+            <div class="page-header__bg" style="
+            background-image: url(assets/images/shapes/page-header-bg-shape.png);
+          "></div>
             <div class="page-header__shape-4">
-                <img src="assets/images/shapes/page-header-shape-4.png" alt="">
+                <img src="assets/images/shapes/page-header-shape-4.png" alt="" />
             </div>
             <div class="page-header__shape-5">
-                <img src="assets/images/shapes/page-header-shape-5.png" alt="">
+                <img src="assets/images/shapes/page-header-shape-5.png" alt="" />
             </div>
             <div class="page-header__social">
                 <a href="#">Facebook</a>
@@ -182,15 +247,15 @@
             <div class="container">
                 <div class="page-header__inner">
                     <div class="page-header__img">
-                        <img src="assets/images/resources/page-header-img-1.png" alt="">
+                        <img src="assets/images/resources/page-header-img-1.png" alt="" />
                         <div class="page-header__shape-1">
-                            <img src="assets/images/shapes/page-header-shape-1.png" alt="">
+                            <img src="assets/images/shapes/page-header-shape-1.png" alt="" />
                         </div>
                         <div class="page-header__shape-2">
-                            <img src="assets/images/shapes/page-header-shape-2.png" alt="">
+                            <img src="assets/images/shapes/page-header-shape-2.png" alt="" />
                         </div>
                         <div class="page-header__shape-3">
-                            <img src="assets/images/shapes/page-header-shape-3.png" alt="">
+                            <img src="assets/images/shapes/page-header-shape-3.png" alt="" />
                         </div>
                     </div>
                     <h2>Course Grid</h2>
@@ -213,133 +278,209 @@
                     <div class="col-xl-4 col-lg-5">
                         <div class="course-grid__left">
                             <div class="course-grid__sidebar">
-                                <div class="course-grid__search course-grid__single">
-                                    <div class="course-grid__title-box">
-                                        <h3 class="course-grid__title">Search Now</h3>
-                                        <div class="course-grid__title-shape-1">
-                                            <img src="assets/images/shapes/course-grid-title-shape-1.png" alt="">
-                                        </div>
-                                    </div>
-                                    <p class="course-grid__search-text">With the release of Letraset sheets containi
-                                        Lorem Ipsum passages</p>
-                                    <form action="#">
-                                        <input type="search" placeholder="Find by Categories">
-                                        <button type="submit"><i class="icon-search"></i>Search</button>
-                                    </form>
-                                </div>
                                 <div class="course-grid__price-filter course-grid__single">
                                     <div class="course-grid__title-box">
                                         <h3 class="course-grid__title">Price Filter</h3>
                                         <div class="course-grid__title-shape-1">
-                                            <img src="assets/images/shapes/course-grid-title-shape-1.png" alt="">
+                                            <img src="assets/images/shapes/course-grid-title-shape-1.png" alt="" />
                                         </div>
                                     </div>
                                     <div class="course-grid__price-filter-free-and-paid-course">
                                         <label class="custom-radio">
-                                            <input type="radio" name="myRadios" value="1" checked>
+                                            <input type="radio" name="myRadios" value="paid" checked />
                                             <span class="radio-dot"></span>
                                             <span class="radio-text">Paid Course</span>
                                         </label>
                                         <label class="custom-radio">
-                                            <input type="radio" name="myRadios" value="2">
+                                            <input type="radio" name="myRadios" value="free" />
                                             <span class="radio-dot"></span>
                                             <span class="radio-text">Free Course</span>
                                         </label>
                                     </div>
-                                    <div class="course-grid__price-filter-ranger">
-                                        <p class="course-grid__price-filter-title">Price: $89 - $65</p>
-                                        <div class="price-ranger">
-                                            <div id="slider-range"></div>
-                                            <div class="ranger-min-max-block">
-                                                <input type="text" readonly class="min">
-                                                <span>-</span>
-                                                <input type="text" readonly class="max">
-                                                <input type="submit" value="Apply">
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
-                                <div class="course-grid__categories course-grid__single">
-                                    <div class="course-grid__title-box">
-                                        <h3 class="course-grid__title">Categories</h3>
+                                <div class="course-grid__categories course-grid__single"
+                                    style="position: relative; display: block;">
+                                    <div class="course-grid__title-box" style="margin-bottom: 16px;">
+                                        <h3 class="course-grid__title" style="margin: 0;">Categories</h3>
                                         <div class="course-grid__title-shape-1">
-                                            <img src="assets/images/shapes/course-grid-title-shape-1.png" alt="">
+                                            <img src="assets/images/shapes/course-grid-title-shape-1.png" alt="" />
                                         </div>
                                     </div>
-                                    <ul class="list-unstyled course-grid__list-item">
-                                        <li>
-                                            <div class="course-grid__list-check"></div>
-                                            <p class="course-grid__list-text">Accounting & Finace (12)</p>
+                                    <ul class="list-unstyled course-grid__list-item"
+                                        style="list-style: none; padding: 0; margin: 0;">
+                                        <li style="display: flex; align-items: center; margin-bottom: 20px;">
+                                            <label style="cursor: pointer; display: flex; align-items: center;">
+                                                <input type="checkbox" class="category-checkbox" value="accounting"
+                                                    style="position: absolute; opacity: 0; width: 0; height: 0; margin: 0;" />
+                                                <div class="course-grid__list-check" style="
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          height: 18px;
+          width: 18px;
+          border: 2px solid #7d3cff;
+          border-radius: 6px;
+          transition: all 0.15s ease-in-out;
+          cursor: pointer;
+        "></div>
+                                                <p class="course-grid__list-text"
+                                                    style="margin: 0 0 0 8px; font-size: 16px; line-height: 16px;">
+                                                    Accounting & Finance (12)
+                                                </p>
+                                            </label>
                                         </li>
-                                        <li>
-                                            <div class="course-grid__list-check"></div>
-                                            <p class="course-grid__list-text">Programming & Tech (25)</p>
+
+                                        <li style="display: flex; align-items: center; margin-bottom: 20px;">
+                                            <label style="cursor: pointer; display: flex; align-items: center;">
+                                                <input type="checkbox" class="category-checkbox" value="programming"
+                                                    style="position: absolute; opacity: 0; width: 0; height: 0; margin: 0;" />
+                                                <div class="course-grid__list-check" style="
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          height: 18px;
+          width: 18px;
+          border: 2px solid #7d3cff;
+          border-radius: 6px;
+          transition: all 0.15s ease-in-out;
+          cursor: pointer;
+        "></div>
+                                                <p class="course-grid__list-text"
+                                                    style="margin: 0 0 0 8px; font-size: 16px; line-height: 16px;">
+                                                    Programming & Tech (25)
+                                                </p>
+                                            </label>
                                         </li>
-                                        <li>
-                                            <div class="course-grid__list-check"></div>
-                                            <p class="course-grid__list-text">Art & Design (59)</p>
+
+                                        <li style="display: flex; align-items: center; margin-bottom: 20px;">
+                                            <label style="cursor: pointer; display: flex; align-items: center;">
+                                                <input type="checkbox" class="category-checkbox" value="art"
+                                                    style="position: absolute; opacity: 0; width: 0; height: 0; margin: 0;" />
+                                                <div class="course-grid__list-check" style="
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          height: 18px;
+          width: 18px;
+          border: 2px solid #7d3cff;
+          border-radius: 6px;
+          transition: all 0.15s ease-in-out;
+          cursor: pointer;
+        "></div>
+                                                <p class="course-grid__list-text"
+                                                    style="margin: 0 0 0 8px; font-size: 16px; line-height: 16px;">
+                                                    Art & Design (59)
+                                                </p>
+                                            </label>
                                         </li>
-                                        <li>
-                                            <div class="course-grid__list-check"></div>
-                                            <p class="course-grid__list-text">Health & Fitness (24)</p>
+
+                                        <li style="display: flex; align-items: center; margin-bottom: 20px;">
+                                            <label style="cursor: pointer; display: flex; align-items: center;">
+                                                <input type="checkbox" class="category-checkbox" value="health"
+                                                    style="position: absolute; opacity: 0; width: 0; height: 0; margin: 0;" />
+                                                <div class="course-grid__list-check" style="
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          height: 18px;
+          width: 18px;
+          border: 2px solid #7d3cff;
+          border-radius: 6px;
+          transition: all 0.15s ease-in-out;
+          cursor: pointer;
+        "></div>
+                                                <p class="course-grid__list-text"
+                                                    style="margin: 0 0 0 8px; font-size: 16px; line-height: 16px;">
+                                                    Health & Fitness (24)
+                                                </p>
+                                            </label>
                                         </li>
-                                        <li>
-                                            <div class="course-grid__list-check"></div>
-                                            <p class="course-grid__list-text">Sales & Marketing (40)</p>
+
+                                        <li style="display: flex; align-items: center; margin-bottom: 20px;">
+                                            <label style="cursor: pointer; display: flex; align-items: center;">
+                                                <input type="checkbox" class="category-checkbox" value="sales"
+                                                    style="position: absolute; opacity: 0; width: 0; height: 0; margin: 0;" />
+                                                <div class="course-grid__list-check" style="
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          height: 18px;
+          width: 18px;
+          border: 2px solid #7d3cff;
+          border-radius: 6px;
+          transition: all 0.15s ease-in-out;
+          cursor: pointer;
+        "></div>
+                                                <p class="course-grid__list-text"
+                                                    style="margin: 0 0 0 8px; font-size: 16px; line-height: 16px;">
+                                                    Sales & Marketing (40)
+                                                </p>
+                                            </label>
                                         </li>
-                                        <li>
-                                            <div class="course-grid__list-check"></div>
-                                            <p class="course-grid__list-text">User Research (40)</p>
+
+                                        <li style="display: flex; align-items: center; margin-bottom: 20px;">
+                                            <label style="cursor: pointer; display: flex; align-items: center;">
+                                                <input type="checkbox" class="category-checkbox" value="user-research"
+                                                    style="position: absolute; opacity: 0; width: 0; height: 0; margin: 0;" />
+                                                <div class="course-grid__list-check" style="
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          height: 18px;
+          width: 18px;
+          border: 2px solid #7d3cff;
+          border-radius: 6px;
+          transition: all 0.15s ease-in-out;
+          cursor: pointer;
+        "></div>
+                                                <p class="course-grid__list-text"
+                                                    style="margin: 0 0 0 8px; font-size: 16px; line-height: 16px;">
+                                                    User Research (40)
+                                                </p>
+                                            </label>
                                         </li>
-                                        <li>
-                                            <div class="course-grid__list-check"></div>
-                                            <p class="course-grid__list-text">Business Development (30)</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="course-grid__skill course-grid__single">
-                                    <div class="course-grid__title-box">
-                                        <h3 class="course-grid__title">Skills Level</h3>
-                                        <div class="course-grid__title-shape-1">
-                                            <img src="assets/images/shapes/course-grid-title-shape-1.png" alt="">
-                                        </div>
-                                    </div>
-                                    <ul class="list-unstyled course-grid__list-item">
-                                        <li>
-                                            <div class="course-grid__list-check"></div>
-                                            <p class="course-grid__list-text">All Level (290)</p>
-                                        </li>
-                                        <li>
-                                            <div class="course-grid__list-check"></div>
-                                            <p class="course-grid__list-text">Intermediate (230)</p>
-                                        </li>
-                                        <li>
-                                            <div class="course-grid__list-check"></div>
-                                            <p class="course-grid__list-text">Beginner (40)</p>
-                                        </li>
-                                        <li>
-                                            <div class="course-grid__list-check"></div>
-                                            <p class="course-grid__list-text">Free Seminar (300)</p>
-                                        </li>
-                                        <li>
-                                            <div class="course-grid__list-check"></div>
-                                            <p class="course-grid__list-text">Professional (50)</p>
-                                        </li>
-                                        <li>
-                                            <div class="course-grid__list-check"></div>
-                                            <p class="course-grid__list-text">Advanced (30)</p>
+
+                                        <li style="display: flex; align-items: center; margin-bottom: 0;">
+                                            <label style="cursor: pointer; display: flex; align-items: center;">
+                                                <input type="checkbox" class="category-checkbox" value="business-dev"
+                                                    style="position: absolute; opacity: 0; width: 0; height: 0; margin: 0;" />
+                                                <div class="course-grid__list-check" style="
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          height: 18px;
+          width: 18px;
+          border: 2px solid #7d3cff;
+          border-radius: 6px;
+          transition: all 0.15s ease-in-out;
+          cursor: pointer;
+        "></div>
+                                                <p class="course-grid__list-text"
+                                                    style="margin: 0 0 0 8px; font-size: 16px; line-height: 16px;">
+                                                    Business Development (30)
+                                                </p>
+                                            </label>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="course-grid__discount course-grid__single">
-                                    <div class="course-grid__discount-shape-bg"
-                                        style="background-image: url(assets/images/shapes/course-grid-discount-shape-bg.png);">
-                                    </div>
+                                    <div class="course-grid__discount-shape-bg" style="
+                        background-image: url(assets/images/shapes/course-grid-discount-shape-bg.png);
+                      "></div>
                                     <h4 class="course-grid__discount-title">20% Discount</h4>
-                                    <p class="course-grid__discount-text">is simply dummy text of the printing <br> and
-                                        typesetting industry</p>
+                                    <p class="course-grid__discount-text">
+                                        is simply dummy text of the printing <br />
+                                        and typesetting industry
+                                    </p>
                                     <div class="course-grid__discount-img">
-                                        <img src="assets/images/resources/course-grid-discount-img-1.png" alt="">
+                                        <img src="assets/images/resources/course-grid-discount-img-1.png" alt="" />
                                     </div>
                                     <div class="course-grid__discount-coupon">
                                         <p>Use Coupon</p>
@@ -351,442 +492,16 @@
                     </div>
                     <div class="col-xl-8 col-lg-7">
                         <div class="course-grid__right">
-                            <div class="course-list__right-top">
-                                <p class="course-list__right-top-text">Showing 12 Courses of 60</p>
-                                <div class="course-list__right-top-btn">
-                                    <a href="#"><span class="icon-border"></span></a>
-                                    <a href="#"><span class="icon-menu"></span></a>
+                            <div class="course-grid__right-content-box"
+                                style="padding: 20px; background-color: #f7f8fa">
+                                <div style="
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 20px;
+                    justify-content: space-between;
+                " id="course-container">
+                                    <!-- Courses will be dynamically inserted here -->
                                 </div>
-                                <div class="course-list__showing-sort">
-                                    <p>Sort by: </p>
-                                    <div class="select-box">
-                                        <select class="wide">
-                                            <option data-display="Last Features">Last Features</option>
-                                            <option value="1">Sort by popular</option>
-                                            <option value="2">Sort by Price</option>
-                                            <option value="3">Sort by Ratings</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="course-grid__right-content-box">
-                                <div class="row">
-                                    <!--Courses Two Single Start-->
-                                    <div class="col-xl-6">
-                                        <div class="courses-two__single">
-                                            <div class="courses-two__img-box">
-                                                <div class="courses-two__img">
-                                                    <img src="assets/images/resources/courses-2-1.jpg" alt="">
-                                                </div>
-                                                <div class="courses-two__heart">
-                                                    <a href="course-details.html"><span class="icon-heart"></span></a>
-                                                </div>
-                                            </div>
-                                            <div class="courses-two__content">
-                                                <div class="courses-two__doller-and-review">
-                                                    <div class="courses-two__doller">
-                                                        <p>$240.00</p>
-                                                    </div>
-                                                    <div class="courses-two__review">
-                                                        <p><i class="icon-star"></i> 4.5 <span>(129 Reviews)</span></p>
-                                                    </div>
-                                                </div>
-                                                <h3 class="courses-two__title"><a href="course-details.html">Getting
-                                                        Started with
-                                                        Computers and Beginner's Guide to Basic Skills</a></h3>
-                                                <div class="courses-two__btn-and-client-box">
-                                                    <div class="courses-two__btn-box">
-                                                        <a href="course-details.html" class="thm-btn-two">
-                                                            <span>Enroll Now</span>
-                                                            <i class="icon-angles-right"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="courses-two__client-box">
-                                                        <div class="courses-two__client-img">
-                                                            <img src="assets/images/resources/courses-two-client-img-1.jpg"
-                                                                alt="">
-                                                        </div>
-                                                        <div class="courses-two__client-content">
-                                                            <h4>Sarah Alison</h4>
-                                                            <p><span class="odometer" data-count="12">00</span><i>+</i>
-                                                                Years Experian</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <ul class="courses-two__meta list-unstyled">
-                                                    <li>
-                                                        <div class="icon">
-                                                            <span class="icon-chart-simple"></span>
-                                                        </div>
-                                                        <p>Beginner</p>
-                                                    </li>
-                                                    <li>
-                                                        <div class="icon">
-                                                            <span class="icon-book"></span>
-                                                        </div>
-                                                        <p>45 Lesson</p>
-                                                    </li>
-                                                    <li>
-                                                        <div class="icon">
-                                                            <span class="icon-clock"></span>
-                                                        </div>
-                                                        <p>620h, 55min</p>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Courses Two Single End-->
-                                    <!--Courses Two Single Start-->
-                                    <div class="col-xl-6">
-                                        <div class="courses-two__single">
-                                            <div class="courses-two__img-box">
-                                                <div class="courses-two__img">
-                                                    <img src="assets/images/resources/courses-2-2.jpg" alt="">
-                                                </div>
-                                                <div class="courses-two__heart">
-                                                    <a href="course-details.html"><span class="icon-heart"></span></a>
-                                                </div>
-                                            </div>
-                                            <div class="courses-two__content">
-                                                <div class="courses-two__doller-and-review">
-                                                    <div class="courses-two__doller">
-                                                        <p>$120.00</p>
-                                                    </div>
-                                                    <div class="courses-two__review">
-                                                        <p><i class="icon-star"></i> 4.5 <span>(129 Reviews)</span></p>
-                                                    </div>
-                                                </div>
-                                                <h3 class="courses-two__title"><a href="course-details.html">Cooking
-                                                        Made Easy: Essential
-                                                        Skills for Everyday Meals</a></h3>
-                                                <div class="courses-two__btn-and-client-box">
-                                                    <div class="courses-two__btn-box">
-                                                        <a href="course-details.html" class="thm-btn-two">
-                                                            <span>Enroll Now</span>
-                                                            <i class="icon-angles-right"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="courses-two__client-box">
-                                                        <div class="courses-two__client-img">
-                                                            <img src="assets/images/resources/courses-two-client-img-2.jpg"
-                                                                alt="">
-                                                        </div>
-                                                        <div class="courses-two__client-content">
-                                                            <h4>Mitchel March</h4>
-                                                            <p><span class="odometer" data-count="20">00</span><i>+</i>
-                                                                Years Experian</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <ul class="courses-two__meta list-unstyled">
-                                                    <li>
-                                                        <div class="icon">
-                                                            <span class="icon-chart-simple"></span>
-                                                        </div>
-                                                        <p>Advance</p>
-                                                    </li>
-                                                    <li>
-                                                        <div class="icon">
-                                                            <span class="icon-book"></span>
-                                                        </div>
-                                                        <p>120 Lesson</p>
-                                                    </li>
-                                                    <li>
-                                                        <div class="icon">
-                                                            <span class="icon-clock"></span>
-                                                        </div>
-                                                        <p>12h, 55min</p>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Courses Two Single End-->
-                                    <!--Courses Two Single Start-->
-                                    <div class="col-xl-6">
-                                        <div class="courses-two__single">
-                                            <div class="courses-two__img-box">
-                                                <div class="courses-two__img">
-                                                    <img src="assets/images/resources/courses-2-3.jpg" alt="">
-                                                </div>
-                                                <div class="courses-two__heart">
-                                                    <a href="course-details.html"><span class="icon-heart"></span></a>
-                                                </div>
-                                            </div>
-                                            <div class="courses-two__content">
-                                                <div class="courses-two__doller-and-review">
-                                                    <div class="courses-two__doller">
-                                                        <p>$640.00</p>
-                                                    </div>
-                                                    <div class="courses-two__review">
-                                                        <p><i class="icon-star"></i> 4.5 <span>(129 Reviews)</span></p>
-                                                    </div>
-                                                </div>
-                                                <h3 class="courses-two__title"><a href="course-details.html">Graphic
-                                                        Design Basics: Learn
-                                                        the Foundations of Visual </a></h3>
-                                                <div class="courses-two__btn-and-client-box">
-                                                    <div class="courses-two__btn-box">
-                                                        <a href="course-details.html" class="thm-btn-two">
-                                                            <span>Enroll Now</span>
-                                                            <i class="icon-angles-right"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="courses-two__client-box">
-                                                        <div class="courses-two__client-img">
-                                                            <img src="assets/images/resources/courses-two-client-img-3.jpg"
-                                                                alt="">
-                                                        </div>
-                                                        <div class="courses-two__client-content">
-                                                            <h4>Mr. Harry</h4>
-                                                            <p><span class="odometer" data-count="5">00</span><i>+</i>
-                                                                Years Experian</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <ul class="courses-two__meta list-unstyled">
-                                                    <li>
-                                                        <div class="icon">
-                                                            <span class="icon-chart-simple"></span>
-                                                        </div>
-                                                        <p>Entry Level</p>
-                                                    </li>
-                                                    <li>
-                                                        <div class="icon">
-                                                            <span class="icon-book"></span>
-                                                        </div>
-                                                        <p>45 Lesson</p>
-                                                    </li>
-                                                    <li>
-                                                        <div class="icon">
-                                                            <span class="icon-clock"></span>
-                                                        </div>
-                                                        <p>620h, 55min</p>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Courses Two Single End-->
-                                    <!--Courses Two Single Start-->
-                                    <div class="col-xl-6">
-                                        <div class="courses-two__single">
-                                            <div class="courses-two__img-box">
-                                                <div class="courses-two__img">
-                                                    <img src="assets/images/resources/courses-2-4.jpg" alt="">
-                                                </div>
-                                                <div class="courses-two__heart">
-                                                    <a href="course-details.html"><span class="icon-heart"></span></a>
-                                                </div>
-                                            </div>
-                                            <div class="courses-two__content">
-                                                <div class="courses-two__doller-and-review">
-                                                    <div class="courses-two__doller">
-                                                        <p>$350.00</p>
-                                                    </div>
-                                                    <div class="courses-two__review">
-                                                        <p><i class="icon-star"></i> 4.5 <span>(129 Reviews)</span></p>
-                                                    </div>
-                                                </div>
-                                                <h3 class="courses-two__title"><a href="course-details.html">Photography
-                                                        for Everyone: How
-                                                        to Capture Stunning Photos with Ease</a></h3>
-                                                <div class="courses-two__btn-and-client-box">
-                                                    <div class="courses-two__btn-box">
-                                                        <a href="course-details.html" class="thm-btn-two">
-                                                            <span>Enroll Now</span>
-                                                            <i class="icon-angles-right"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="courses-two__client-box">
-                                                        <div class="courses-two__client-img">
-                                                            <img src="assets/images/resources/courses-two-client-img-4.jpg"
-                                                                alt="">
-                                                        </div>
-                                                        <div class="courses-two__client-content">
-                                                            <h4>Alisa Olivia</h4>
-                                                            <p><span class="odometer" data-count="8">00</span><i>+</i>
-                                                                Years Experian</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <ul class="courses-two__meta list-unstyled">
-                                                    <li>
-                                                        <div class="icon">
-                                                            <span class="icon-chart-simple"></span>
-                                                        </div>
-                                                        <p>Advance</p>
-                                                    </li>
-                                                    <li>
-                                                        <div class="icon">
-                                                            <span class="icon-book"></span>
-                                                        </div>
-                                                        <p>80 Lesson</p>
-                                                    </li>
-                                                    <li>
-                                                        <div class="icon">
-                                                            <span class="icon-clock"></span>
-                                                        </div>
-                                                        <p>156h, 55min</p>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Courses Two Single End-->
-                                    <!--Courses Two Single Start-->
-                                    <div class="col-xl-6">
-                                        <div class="courses-two__single">
-                                            <div class="courses-two__img-box">
-                                                <div class="courses-two__img">
-                                                    <img src="assets/images/resources/courses-2-5.jpg" alt="">
-                                                </div>
-                                                <div class="courses-two__heart">
-                                                    <a href="course-details.html"><span class="icon-heart"></span></a>
-                                                </div>
-                                            </div>
-                                            <div class="courses-two__content">
-                                                <div class="courses-two__doller-and-review">
-                                                    <div class="courses-two__doller">
-                                                        <p>$150.00</p>
-                                                    </div>
-                                                    <div class="courses-two__review">
-                                                        <p><i class="icon-star"></i> 4.5 <span>(129 Reviews)</span></p>
-                                                    </div>
-                                                </div>
-                                                <h3 class="courses-two__title"><a href="course-details.html">Writing
-                                                        Made Simple: From
-                                                        Ideas to Finished Pieces for All Levels</a></h3>
-                                                <div class="courses-two__btn-and-client-box">
-                                                    <div class="courses-two__btn-box">
-                                                        <a href="course-details.html" class="thm-btn-two">
-                                                            <span>Enroll Now</span>
-                                                            <i class="icon-angles-right"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="courses-two__client-box">
-                                                        <div class="courses-two__client-img">
-                                                            <img src="assets/images/resources/courses-two-client-img-5.jpg"
-                                                                alt="">
-                                                        </div>
-                                                        <div class="courses-two__client-content">
-                                                            <h4>Jordan Walk</h4>
-                                                            <p><span class="odometer" data-count="16">00</span><i>+</i>
-                                                                Years Experian</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <ul class="courses-two__meta list-unstyled">
-                                                    <li>
-                                                        <div class="icon">
-                                                            <span class="icon-chart-simple"></span>
-                                                        </div>
-                                                        <p>Medium</p>
-                                                    </li>
-                                                    <li>
-                                                        <div class="icon">
-                                                            <span class="icon-book"></span>
-                                                        </div>
-                                                        <p>45 Lesson</p>
-                                                    </li>
-                                                    <li>
-                                                        <div class="icon">
-                                                            <span class="icon-clock"></span>
-                                                        </div>
-                                                        <p>326h, 55min</p>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Courses Two Single End-->
-                                    <!--Courses Two Single Start-->
-                                    <div class="col-xl-6">
-                                        <div class="courses-two__single">
-                                            <div class="courses-two__img-box">
-                                                <div class="courses-two__img">
-                                                    <img src="assets/images/resources/courses-2-6.jpg" alt="">
-                                                </div>
-                                                <div class="courses-two__heart">
-                                                    <a href="course-details.html"><span class="icon-heart"></span></a>
-                                                </div>
-                                            </div>
-                                            <div class="courses-two__content">
-                                                <div class="courses-two__doller-and-review">
-                                                    <div class="courses-two__doller">
-                                                        <p>$290.00</p>
-                                                    </div>
-                                                    <div class="courses-two__review">
-                                                        <p><i class="icon-star"></i> 4.5 <span>(129 Reviews)</span></p>
-                                                    </div>
-                                                </div>
-                                                <h3 class="courses-two__title"><a href="course-details.html"> A
-                                                        Beginner’s Guide to
-                                                        Building Your Online Presence"</a></h3>
-                                                <div class="courses-two__btn-and-client-box">
-                                                    <div class="courses-two__btn-box">
-                                                        <a href="course-details.html" class="thm-btn-two">
-                                                            <span>Enroll Now</span>
-                                                            <i class="icon-angles-right"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="courses-two__client-box">
-                                                        <div class="courses-two__client-img">
-                                                            <img src="assets/images/resources/courses-two-client-img-6.jpg"
-                                                                alt="">
-                                                        </div>
-                                                        <div class="courses-two__client-content">
-                                                            <h4>Aman Ellison</h4>
-                                                            <p><span class="odometer" data-count="12">00</span><i>+</i>
-                                                                Years Experian</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <ul class="courses-two__meta list-unstyled">
-                                                    <li>
-                                                        <div class="icon">
-                                                            <span class="icon-chart-simple"></span>
-                                                        </div>
-                                                        <p>Beginner</p>
-                                                    </li>
-                                                    <li>
-                                                        <div class="icon">
-                                                            <span class="icon-book"></span>
-                                                        </div>
-                                                        <p>45 Lesson</p>
-                                                    </li>
-                                                    <li>
-                                                        <div class="icon">
-                                                            <span class="icon-clock"></span>
-                                                        </div>
-                                                        <p>620h, 55min</p>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Courses Two Single End-->
-                                </div>
-                            </div>
-                            <div class="courses-grid__btn-box">
-                                <a href="course-details.html" class="thm-btn-two">
-                                    <span>More Course</span>
-                                    <i class="icon-angles-right"></i>
-                                </a>
-                            </div>
-                            <div class="blog-list__pagination">
-                                <ul class="pg-pagination list-unstyled">
-                                    <li class="prev">
-                                        <a href="#" aria-label="prev"><i class="fas fa-arrow-left"></i></a>
-                                    </li>
-                                    <li class="count active"><a href="#">01</a></li>
-                                    <li class="count"><a href="#">02</a></li>
-                                    <li class="count"><a href="#">03</a></li>
-                                    <li class="next">
-                                        <a href="#" aria-label="Next"><i class="fas fa-arrow-right"></i></a>
-                                    </li>
-                                </ul>
                             </div>
                         </div>
                     </div>
@@ -800,28 +515,33 @@
             <div class="container">
                 <div class="newsletter-two__inner">
                     <div class="newsletter-two__img">
-                        <img src="assets/images/resources/newsletter-two-img-1.png" alt="">
+                        <img src="assets/images/resources/newsletter-two-img-1.png" alt="" />
                     </div>
                     <div class="newsletter-two__inner-content">
-                        <div class="newsletter-two__shape-bg"
-                            style="background-image: url(assets/images/shapes/newsletter-two-shape-bg.png);"></div>
+                        <div class="newsletter-two__shape-bg" style="
+                  background-image: url(assets/images/shapes/newsletter-two-shape-bg.png);
+                "></div>
                         <div class="newsletter-two__like">
-                            <img src="assets/images/shapes/newsletter-two-like.png" alt="">
+                            <img src="assets/images/shapes/newsletter-two-like.png" alt="" />
                         </div>
                         <div class="newsletter-two__title-box">
-                            <h3 class="newsletter-two__title">Subscribe our <span>Newsletter</span></h3>
-                            <p class="newsletter-two__text">Explore a diverse selection of courses all in one platform,
-                                <br>
-                                designed to cater to various learning</p>
+                            <h3 class="newsletter-two__title">
+                                Subscribe our <span>Newsletter</span>
+                            </h3>
+                            <p class="newsletter-two__text">
+                                Explore a diverse selection of courses all in one platform,
+                                <br />
+                                designed to cater to various learning
+                            </p>
                         </div>
                         <div class="newsletter-two__form-box">
                             <form class="newsletter-two__form">
                                 <div class="newsletter-two__input">
-                                    <input type="email" placeholder="Enter Your Email">
+                                    <input type="email" placeholder="Enter Your Email" />
                                 </div>
-                                <button type="submit" class="newsletter-two__btn"> <span
-                                        class="icon-arrow-circle"></span>
-                                    Subscribe</button>
+                                <button type="submit" class="newsletter-two__btn">
+                                    <span class="icon-arrow-circle"></span> Subscribe
+                                </button>
                             </form>
                         </div>
                     </div>
@@ -841,8 +561,9 @@
                             </div>
                             <div class="contact-info-one__content">
                                 <p class="contact-info-one__sub-title">Email Address:</p>
-                                <h5 class="contact-info-one__email"><a
-                                        href="mailto:info@aadyanoverseas.com">info@aadyanoverseas.com</a></h5>
+                                <h5 class="contact-info-one__email">
+                                    <a href="mailto:info@aadyanoverseas.com">info@aadyanoverseas.com</a>
+                                </h5>
                             </div>
                         </div>
                     </li>
@@ -853,7 +574,8 @@
                             </div>
                             <div class="contact-info-one__content">
                                 <p class="contact-info-one__sub-title">Phone Number</p>
-                                <h5 class="contact-info-one__email"><a href="tel:9581530654">+91 95815 30654</a>
+                                <h5 class="contact-info-one__email">
+                                    <a href="tel:9581530654">+91 95815 30654</a>
                                 </h5>
                             </div>
                         </div>
@@ -865,7 +587,9 @@
                             </div>
                             <div class="contact-info-one__content">
                                 <p class="contact-info-one__sub-title">Our Address</p>
-                                <h5 class="contact-info-one__email">Second Floor Pillar no: A1180</h5>
+                                <h5 class="contact-info-one__email">
+                                    Second Floor Pillar no: A1180
+                                </h5>
                             </div>
                         </div>
                     </li>
@@ -879,25 +603,25 @@
             <div class="site-footer-two__shape-1 img-bounce"></div>
             <div class="site-footer-two__shape-2 float-bob-y"></div>
             <div class="site-footer-two__star text-rotate-box">
-                <img src="assets/images/shapes/site-footer-star.png" alt="">
+                <img src="assets/images/shapes/site-footer-star.png" alt="" />
             </div>
             <div class="site-footer-two__top">
                 <div class="site-footer-two__main-content">
                     <div class="container">
                         <div class="site-footer-two__main-content-inner">
                             <div class="site-footer-two__star rotate-me">
-                                <img src="assets/images/shapes/site-footer-two-star.png" alt="">
+                                <img src="assets/images/shapes/site-footer-two-star.png" alt="" />
                             </div>
                             <div class="row">
-
                                 <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
                                     <div class="footer-widget-two__about">
                                         <div class="footer-widget-two__about-logo">
                                             <a href="index.html"><img src="assets/images/resources/LOGO.png" width="250"
-                                                    height="150" alt=""></a>
+                                                    height="150" alt="" /></a>
                                         </div>
-                                        <p class="footer-widget-two__about-text">Your Gateway to the World’s Best
-                                            Opportunities</p>
+                                        <p class="footer-widget-two__about-text">
+                                            Your Gateway to the World’s Best Opportunities
+                                        </p>
                                         <div class="site-footer-two__social">
                                             <a href="#"><span class="fab fa-linkedin-in"></span></a>
                                             <a href="#"><span class="fab fa-pinterest-p"></span></a>
@@ -909,18 +633,35 @@
 
                                 <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
                                     <div class="footer-widget-two__quick-links">
-                                        <h4 class="footer-widget-two__title">Quick Links & Resources</h4>
+                                        <h4 class="footer-widget-two__title">
+                                            Quick Links & Resources
+                                        </h4>
                                         <ul class="footer-widget-two__quick-links-list list-unstyled">
-                                            <li><a href="about.html"><span class="icon-plus"></span> About Us</a></li>
-                                            <li><a href="visa-categories.html"><span class="icon-plus"></span> Visa
-                                                    Categories</a></li>
-                                            <li><a href="training-programs.html"><span class="icon-plus"></span>
-                                                    Training Programs</a></li>
-                                            <li><a href="events.html"><span class="icon-plus"></span> Events</a></li>
-                                            <li><a href="testimonials.html"><span class="icon-plus"></span>
-                                                    Testimonials</a></li>
-                                            <li><a href="blog.html"><span class="icon-plus"></span> Blog</a></li>
-                                            <li><a href="contact.html"><span class="icon-plus"></span> Contact</a></li>
+                                            <li>
+                                                <a href="about.html"><span class="icon-plus"></span> About Us</a>
+                                            </li>
+                                            <li>
+                                                <a href="visa-categories.html"><span class="icon-plus"></span> Visa
+                                                    Categories</a>
+                                            </li>
+                                            <li>
+                                                <a href="training-programs.html"><span class="icon-plus"></span>
+                                                    Training
+                                                    Programs</a>
+                                            </li>
+                                            <li>
+                                                <a href="events.html"><span class="icon-plus"></span> Events</a>
+                                            </li>
+                                            <li>
+                                                <a href="testimonials.html"><span class="icon-plus"></span>
+                                                    Testimonials</a>
+                                            </li>
+                                            <li>
+                                                <a href="blog.html"><span class="icon-plus"></span> Blog</a>
+                                            </li>
+                                            <li>
+                                                <a href="contact.html"><span class="icon-plus"></span> Contact</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -929,17 +670,30 @@
                                     <div class="footer-widget-two__support">
                                         <h4 class="footer-widget-two__title">Support</h4>
                                         <ul class="footer-widget-two__quick-links-list list-unstyled">
-                                            <li><a href="become-a-partner.html"><span class="icon-plus"></span> For
-                                                    Partners</a></li>
-                                            <li><a href="privacy-policy.html"><span class="icon-plus"></span> Privacy &
-                                                    Policy</a></li>
-                                            <li><a href="terms-and-conditions.html"><span class="icon-plus"></span>
-                                                    Terms & Conditions</a></li>
-                                            <li><a href="refer-earn.html"><span class="icon-plus"></span> Refer &
-                                                    Earn</a></li>
-                                            <li><a href="choose-career.html"><span class="icon-plus"></span> Choose
-                                                    Career</a></li>
-                                            <li><a href="contact.html"><span class="icon-plus"></span> Contact</a></li>
+                                            <li>
+                                                <a href="become-a-partner.html"><span class="icon-plus"></span> For
+                                                    Partners</a>
+                                            </li>
+                                            <li>
+                                                <a href="privacy-policy.html"><span class="icon-plus"></span> Privacy &
+                                                    Policy</a>
+                                            </li>
+                                            <li>
+                                                <a href="terms-and-conditions.html"><span class="icon-plus"></span>
+                                                    Terms &
+                                                    Conditions</a>
+                                            </li>
+                                            <li>
+                                                <a href="refer-earn.html"><span class="icon-plus"></span> Refer &
+                                                    Earn</a>
+                                            </li>
+                                            <li>
+                                                <a href="choose-career.html"><span class="icon-plus"></span> Choose
+                                                    Career</a>
+                                            </li>
+                                            <li>
+                                                <a href="contact.html"><span class="icon-plus"></span> Contact</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -948,16 +702,27 @@
                                     <div class="footer-widget-two__courses">
                                         <h4 class="footer-widget-two__title">Countries</h4>
                                         <ul class="footer-widget-two__quick-links-list list-unstyled">
-                                            <li><a href="#"><span class="icon-plus"></span> USA</a></li>
-                                            <li><a href="#"><span class="icon-plus"></span> UK</a></li>
-                                            <li><a href="#"><span class="icon-plus"></span> CANADA</a></li>
-                                            <li><a href="#"><span class="icon-plus"></span> AUSTRALIA</a></li>
-                                            <li><a href="#"><span class="icon-plus"></span> EUROPE</a></li>
-                                            <li><a href="#"><span class="icon-plus"></span> And many more…</a></li>
+                                            <li>
+                                                <a href="#"><span class="icon-plus"></span> USA</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><span class="icon-plus"></span> UK</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><span class="icon-plus"></span> CANADA</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><span class="icon-plus"></span> AUSTRALIA</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><span class="icon-plus"></span> EUROPE</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><span class="icon-plus"></span> And many more…</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -969,17 +734,25 @@
                         <div class="col-xl-12">
                             <div class="site-footer__bottom-inner">
                                 <div class="site-footer__copyright">
-                                    <p class="site-footer__copyright-text">Copyright © 2025 <a href="#">Aadyan
-                                            Overseas</a>. All Rights Reserved</p>
+                                    <p class="site-footer__copyright-text">
+                                        Copyright © 2025 <a href="#">Aadyan Overseas</a>. All
+                                        Rights Reserved
+                                    </p>
                                 </div>
                                 <div class="site-footer__bottom-card-box">
                                     <ul class="list-unstyled site-footer__card-menu">
-                                        <li><a href="contact.html"><img src="assets/images/icon/card-icon-1.png"
-                                                    alt=""></a></li>
-                                        <li><a href="contact.html"><img src="assets/images/icon/card-icon-2.png"
-                                                    alt=""></a></li>
-                                        <li><a href="contact.html"><img src="assets/images/icon/card-icon-3.png"
-                                                    alt=""></a></li>
+                                        <li>
+                                            <a href="contact.html"><img src="assets/images/icon/card-icon-1.png"
+                                                    alt="" /></a>
+                                        </li>
+                                        <li>
+                                            <a href="contact.html"><img src="assets/images/icon/card-icon-2.png"
+                                                    alt="" /></a>
+                                        </li>
+                                        <li>
+                                            <a href="contact.html"><img src="assets/images/icon/card-icon-3.png"
+                                                    alt="" /></a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -989,12 +762,8 @@
             </div>
         </footer>
         <!--Site Footer Two End-->
-
-
-
-
-    </div><!-- /.page-wrapper -->
-
+    </div>
+    <!-- /.page-wrapper -->
 
     <div class="mobile-nav__wrapper">
         <div class="mobile-nav__overlay mobile-nav__toggler"></div>
@@ -1019,18 +788,18 @@
                     <i class="fas fa-phone"></i>
                     <a href="tel:666-888-0000">666 888 0000</a>
                 </li>
-            </ul><!-- /.mobile-nav__contact -->
+            </ul>
+            <!-- /.mobile-nav__contact -->
             <div class="mobile-nav__top">
                 <div class="mobile-nav__social">
                     <a href="#" class="fab fa-twitter"></a>
                     <a href="#" class="fab fa-facebook-square"></a>
                     <a href="#" class="fab fa-pinterest-p"></a>
                     <a href="#" class="fab fa-instagram"></a>
-                </div><!-- /.mobile-nav__social -->
-            </div><!-- /.mobile-nav__top -->
-
-
-
+                </div>
+                <!-- /.mobile-nav__social -->
+            </div>
+            <!-- /.mobile-nav__top -->
         </div>
         <!-- /.mobile-nav__content -->
     </div>
@@ -1039,10 +808,12 @@
     <!-- Search Popup -->
     <div class="search-popup">
         <div class="color-layer"></div>
-        <button class="close-search"><span class="far fa-times fa-fw"></span></button>
+        <button class="close-search">
+            <span class="far fa-times fa-fw"></span>
+        </button>
         <form method="post" action="blog.html">
             <div class="form-group">
-                <input type="search" name="search-field" value="" placeholder="Search Here" required="">
+                <input type="search" name="search-field" value="" placeholder="Search Here" required="" />
                 <button type="submit"><i class="fas fa-search"></i></button>
             </div>
         </form>
@@ -1053,6 +824,47 @@
         <span class="scroll-to-top__wrapper"><span class="scroll-to-top__inner"></span></span>
         <span class="scroll-to-top__text"> Go Back Top</span>
     </a>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const radios = document.querySelectorAll('input[name="myRadios"]');
+            const categoryCheckboxes = document.querySelectorAll(".category-checkbox");
+            const courses = document.querySelectorAll(".course-card");
+
+            function filterCourses() {
+                const selectedType = document.querySelector('input[name="myRadios"]:checked').value;
+                const selectedCategories = Array.from(categoryCheckboxes)
+                    .filter(cb => cb.checked)
+                    .map(cb => cb.value);
+
+                courses.forEach(course => {
+                    const courseType = course.getAttribute("data-type");
+                    const courseCategory = course.getAttribute("data-category");
+
+                    // Match price type
+                    const typeMatch = selectedType === courseType;
+
+                    // Match category (show all if none selected)
+                    const categoryMatch =
+                        selectedCategories.length === 0 || selectedCategories.includes(courseCategory);
+
+                    if (typeMatch && categoryMatch) {
+                        course.style.display = "";
+                    } else {
+                        course.style.display = "none";
+                    }
+                });
+            }
+
+            // Add event listeners
+            radios.forEach(radio => radio.addEventListener("change", filterCourses));
+            categoryCheckboxes.forEach(cb => cb.addEventListener("change", filterCourses));
+
+            // Initial filter on load
+            filterCourses();
+        });
+    </script>
+
 
 
     <script src="assets/js/jquery-3.6.0.min.js"></script>
@@ -1073,15 +885,9 @@
     <script src="assets/js/marquee.min.js"></script>
     <script src="assets/js/aos.js"></script>
 
-
-
-
     <script src="assets/js/gsap/gsap.js"></script>
     <script src="assets/js/gsap/ScrollTrigger.js"></script>
     <script src="assets/js/gsap/SplitText.js"></script>
-
-
-
 
     <!-- template js -->
     <script src="assets/js/script.js"></script>

@@ -6,8 +6,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"UniversityofSouthWalesUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/UniversityofSouthWalesUK.jpg",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -17,8 +17,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"UniversityofSouthWalesUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/UniversityofSouthWalesUK.jpg",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -28,8 +28,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"UniversityofSouthWalesUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/UniversityofSouthWalesUK.jpg",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -39,8 +39,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"UniversityofSouthWalesUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/UniversityofSouthWalesUK.jpg",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -50,8 +50,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"UniversityofSouthWalesUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/UniversityofSouthWalesUK.jpg",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -61,8 +61,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"UniversityofSouthWalesUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/UniversityofSouthWalesUK.jpg",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -72,8 +72,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"UniversityofSouthWalesUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/UniversityofSouthWalesUK.jpg",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -83,8 +83,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"UniversityofSouthWalesUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/UniversityofSouthWalesUK.jpg",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -94,8 +94,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"UniversityofSouthWalesUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/UniversityofSouthWalesUK.jpg",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -105,8 +105,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"UniversityofSouthWalesUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/UniversityofSouthWalesUK.jpg",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -116,8 +116,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"UniversityofSouthWalesUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/UniversityofSouthWalesUK.jpg",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -127,8 +127,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"UniversityofSouthWalesUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/UniversityofSouthWalesUK.jpg",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -138,8 +138,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"UniversityofSouthWalesUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/UniversityofSouthWalesUK.jpg",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -149,8 +149,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"SwanseaUniversityUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/SwanseaUniversityUK.png",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -160,8 +160,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"SwanseaUniversityUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/SwanseaUniversityUK.png",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -171,8 +171,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"SwanseaUniversityUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/SwanseaUniversityUK.png",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -182,8 +182,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"SwanseaUniversityUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/SwanseaUniversityUK.png",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -193,8 +193,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"SwanseaUniversityUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/SwanseaUniversityUK.png",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -204,8 +204,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"SwanseaUniversityUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/SwanseaUniversityUK.png",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -215,8 +215,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"SwanseaUniversityUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/SwanseaUniversityUK.png",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -226,8 +226,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"SwanseaUniversityUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/SwanseaUniversityUK.png",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -237,8 +237,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"SwanseaUniversityUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/SwanseaUniversityUK.png",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -248,8 +248,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"SwanseaUniversityUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/SwanseaUniversityUK.png",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -259,8 +259,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"SwanseaUniversityUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/SwanseaUniversityUK.png",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -270,8 +270,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"AstonUniversityUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/AstonUniversityUK.jpg",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -281,8 +281,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"AstonUniversityUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/AstonUniversityUK.jpg",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -292,8 +292,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"BrunelUniversityofLondonUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/BrunelUniversityofLondonUK.jpg",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -303,8 +303,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"BrunelUniversityofLondonUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/BrunelUniversityofLondonUK.jpg",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -314,8 +314,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"BrunelUniversityofLondonUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/BrunelUniversityofLondonUK.jpg",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -325,8 +325,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"BrunelUniversityofLondonUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/BrunelUniversityofLondonUK.jpg",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         },
         {
@@ -336,8 +336,8 @@ const uk =  [
             "category": "uk",
             "universityFilter":"BrunelUniversityofLondonUK",
             "image": {
-                "university_logo": "",
-                "instructor_avatar": ""
+                "university_logo": "/assets/images/overseas/courses/UK/BrunelUniversityofLondonUK.jpg",
+                "instructor_avatar": "https://flagcdn.com/w320/gb.png"
             }
         }
     ]

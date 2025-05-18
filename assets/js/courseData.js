@@ -4,6 +4,7 @@ const uk =  [
             "university": "University of South Wales, UK",
             "price": "£16,900",
             "category": "uk",
+            "universityFilter":"UniversityofSouthWalesUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -14,6 +15,7 @@ const uk =  [
             "university": "University of South Wales, UK",
             "price": "£16,900",
             "category": "uk",
+            "universityFilter":"UniversityofSouthWalesUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -24,6 +26,7 @@ const uk =  [
             "university": "University of South Wales, UK",
             "price": "£16,900",
             "category": "uk",
+            "universityFilter":"UniversityofSouthWalesUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -34,6 +37,7 @@ const uk =  [
             "university": "University of South Wales, UK",
             "price": "£15,850",
             "category": "uk",
+            "universityFilter":"UniversityofSouthWalesUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -44,6 +48,7 @@ const uk =  [
             "university": "University of South Wales, UK",
             "price": "£16,900",
             "category": "uk",
+            "universityFilter":"UniversityofSouthWalesUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -54,6 +59,7 @@ const uk =  [
             "university": "University of South Wales, UK",
             "price": "£17,900",
             "category": "uk",
+            "universityFilter":"UniversityofSouthWalesUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -64,6 +70,7 @@ const uk =  [
             "university": "University of South Wales, UK",
             "price": "£14,950",
             "category": "uk",
+            "universityFilter":"UniversityofSouthWalesUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -74,6 +81,7 @@ const uk =  [
             "university": "University of South Wales, UK",
             "price": "£16,900",
             "category": "uk",
+            "universityFilter":"UniversityofSouthWalesUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -84,6 +92,7 @@ const uk =  [
             "university": "University of South Wales, UK",
             "price": "£16,900",
             "category": "uk",
+            "universityFilter":"UniversityofSouthWalesUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -94,6 +103,7 @@ const uk =  [
             "university": "University of South Wales, UK",
             "price": "£16,200",
             "category": "uk",
+            "universityFilter":"UniversityofSouthWalesUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -104,6 +114,7 @@ const uk =  [
             "university": "University of South Wales, UK",
             "price": "£16,900",
             "category": "uk",
+            "universityFilter":"UniversityofSouthWalesUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -114,6 +125,7 @@ const uk =  [
             "university": "University of South Wales, UK",
             "price": "£15,850",
             "category": "uk",
+            "universityFilter":"UniversityofSouthWalesUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -124,6 +136,7 @@ const uk =  [
             "university": "University of South Wales, UK",
             "price": "£16,200",
             "category": "uk",
+            "universityFilter":"UniversityofSouthWalesUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -134,6 +147,7 @@ const uk =  [
             "university": "Swansea University, UK",
             "price": "£21,200",
             "category": "uk",
+            "universityFilter":"SwanseaUniversityUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -144,6 +158,7 @@ const uk =  [
             "university": "Swansea University, UK",
             "price": "£20,300",
             "category": "uk",
+            "universityFilter":"SwanseaUniversityUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -154,6 +169,7 @@ const uk =  [
             "university": "Swansea University, UK",
             "price": "£20,900",
             "category": "uk",
+            "universityFilter":"SwanseaUniversityUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -164,6 +180,7 @@ const uk =  [
             "university": "Swansea University, UK",
             "price": "£21,200",
             "category": "uk",
+            "universityFilter":"SwanseaUniversityUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -174,6 +191,7 @@ const uk =  [
             "university": "Swansea University, UK",
             "price": "£10,050",
             "category": "uk",
+            "universityFilter":"SwanseaUniversityUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -184,6 +202,7 @@ const uk =  [
             "university": "Swansea University, UK",
             "price": "£17,500",
             "category": "uk",
+            "universityFilter":"SwanseaUniversityUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -194,6 +213,7 @@ const uk =  [
             "university": "Swansea University, UK",
             "price": "£20,900",
             "category": "uk",
+            "universityFilter":"SwanseaUniversityUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -204,6 +224,7 @@ const uk =  [
             "university": "Swansea University, UK",
             "price": "£20,600",
             "category": "uk",
+            "universityFilter":"SwanseaUniversityUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -214,6 +235,7 @@ const uk =  [
             "university": "Swansea University, UK",
             "price": "£20,900",
             "category": "uk",
+            "universityFilter":"SwanseaUniversityUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -224,6 +246,7 @@ const uk =  [
             "university": "Swansea University, UK",
             "price": "£19,100",
             "category": "uk",
+            "universityFilter":"SwanseaUniversityUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -234,6 +257,7 @@ const uk =  [
             "university": "Swansea University, UK",
             "price": "£18,500",
             "category": "uk",
+            "universityFilter":"SwanseaUniversityUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -244,6 +268,7 @@ const uk =  [
             "university": "Aston University, UK",
             "price": "£21,500",
             "category": "uk",
+            "universityFilter":"AstonUniversityUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -254,6 +279,7 @@ const uk =  [
             "university": "Aston University, UK",
             "price": "£21,500",
             "category": "uk",
+            "universityFilter":"AstonUniversityUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -264,6 +290,7 @@ const uk =  [
             "university": "Brunel University of London, UK",
             "price": "£19,330",
             "category": "uk",
+            "universityFilter":"BrunelUniversityofLondonUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -274,6 +301,7 @@ const uk =  [
             "university": "Brunel University of London, UK",
             "price": "£19,330",
             "category": "uk",
+            "universityFilter":"BrunelUniversityofLondonUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -284,6 +312,7 @@ const uk =  [
             "university": "Brunel University of London, UK",
             "price": "£23,615",
             "category": "uk",
+            "universityFilter":"BrunelUniversityofLondonUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -294,6 +323,7 @@ const uk =  [
             "university": "Brunel University of London, UK",
             "price": "£24,795",
             "category": "uk",
+            "universityFilter":"BrunelUniversityofLondonUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""
@@ -304,6 +334,7 @@ const uk =  [
             "university": "Brunel University of London, UK",
             "price": "£49,395",
             "category": "uk",
+            "universityFilter":"BrunelUniversityofLondonUK",
             "image": {
                 "university_logo": "",
                 "instructor_avatar": ""

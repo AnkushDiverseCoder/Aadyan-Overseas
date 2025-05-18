@@ -62,96 +62,103 @@
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
     <script type="module">
-        import uk from './assets/js/courseData.js'; // Adjust the path as necessary
+        import uk from './assets/js/courseData.js'; // Adjust path as needed
 
         document.addEventListener('DOMContentLoaded', () => {
             const courseContainer = document.getElementById('course-container');
 
+            // Render Courses
             uk.forEach(course => {
                 const courseCard = document.createElement('div');
                 courseCard.className = 'course-card';
-                courseCard.setAttribute('data-type', "paid"); // Set data-type as "paid"
-                courseCard.setAttribute('data-category', "uk"); // Set data-category as "business-dev"
+                courseCard.setAttribute('data-type', "paid"); // or "free" if dynamic
+                courseCard.setAttribute('data-category', "uk"); // Change as per actual data
+                courseCard.setAttribute('data-university', course.university); // Add university for filtering
+
                 courseCard.style = `
-                    flex: 1 1 300px;
-                    background-color: white;
-                    border-radius: 10px;
-                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-                    padding: 20px;
-                    box-sizing: border-box;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    min-width: 280px;
-                `;
+                flex: 1 1 300px;
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+                padding: 20px;
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                min-width: 280px;
+            `;
 
                 courseCard.innerHTML = `
-                    <h3 style="font-size: 18px; margin: 0 0 10px; color: #111">${course.title}</h3>
-                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
-                        <img src="${course.image.university_logo}" alt="University Logo" style="
-                            width: 30px;
-                            height: 30px;
-                            border-radius: 5px;
-                            margin-right: 10px;
-                        " />
-                        <p style="
-                            margin: 0;
-                            font-size: 14px;
-                            color: #444;
-                            flex: 1;
-                        ">${course.university}</p>
-                        <img src="${course.image.instructor_avatar}" alt="Instructor" style="
-                            width: 30px;
-                            height: 30px;
-                            border-radius: 50%;
-                            object-fit: cover;
-                        " />
-                    </div>
-                    <div style="display: flex; align-items: center; justify-content: space-between;">
-                        <div style="
-                            font-size: 16px;
-                            font-weight: 600;
-                            color: #7d3cff;
-                        ">${course.price}</div>
-                        <div style="
-                            background-color: #e5dcff;
-                            color: #7d3cff;
-                            font-size: 12px;
-                            padding: 4px 8px;
-                            border-radius: 5px;
-                            font-weight: 600;
-                            cursor: pointer;
-                            user-select: none;
-                        ">${course.category || "General"}</div>
-                    </div>
-                `;
+                <h3 style="font-size: 18px; margin: 0 0 10px; color: #111">${course.title}</h3>
+                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                    <img src="${course.image.university_logo}" alt="University Logo" style="
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 5px;
+                        margin-right: 10px;
+                    " />
+                    <p style="
+                        margin: 0;
+                        font-size: 14px;
+                        color: #444;
+                        flex: 1;
+                    ">${course.university}</p>
+                    <img src="${course.image.instructor_avatar}" alt="Instructor" style="
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    " />
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <div style="
+                        font-size: 16px;
+                        font-weight: 600;
+                        color: #7d3cff;
+                    ">${course.price}</div>
+                    <div style="
+                        background-color: #e5dcff;
+                        color: #7d3cff;
+                        font-size: 12px;
+                        padding: 4px 8px;
+                        border-radius: 5px;
+                        font-weight: 600;
+                        cursor: pointer;
+                        user-select: none;
+                    ">${course.category || "General"}</div>
+                </div>
+            `;
 
                 courseContainer.appendChild(courseCard);
             });
 
-            // Filtering functionality
+            // Filtering logic
             const radios = document.querySelectorAll('input[name="myRadios"]');
             const categoryCheckboxes = document.querySelectorAll(".category-checkbox");
+            const universityCheckboxes = document.querySelectorAll(".university-checkbox");
             const courses = document.querySelectorAll(".course-card");
 
             function filterCourses() {
                 const selectedType = document.querySelector('input[name="myRadios"]:checked').value;
+
                 const selectedCategories = Array.from(categoryCheckboxes)
+                    .filter(cb => cb.checked)
+                    .map(cb => cb.value);
+
+                const selectedUniversities = Array.from(universityCheckboxes)
                     .filter(cb => cb.checked)
                     .map(cb => cb.value);
 
                 courses.forEach(course => {
                     const courseType = course.getAttribute("data-type");
                     const courseCategory = course.getAttribute("data-category");
+                    const courseUniversity = course.getAttribute("data-university");
 
-                    // Match price type
                     const typeMatch = selectedType === courseType;
+                    const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(courseCategory);
+                    const universityMatch = selectedUniversities.length === 0 || selectedUniversities.includes(courseUniversity);
 
-                    // Match category (show all if none selected)
-                    const categoryMatch =
-                        selectedCategories.length === 0 || selectedCategories.includes(courseCategory);
-
-                    if (typeMatch && categoryMatch) {
+                    if (typeMatch && categoryMatch && universityMatch) {
                         course.style.display = "";
                     } else {
                         course.style.display = "none";
@@ -159,14 +166,16 @@
                 });
             }
 
-            // Add event listeners
+            // Add event listeners for filters
             radios.forEach(radio => radio.addEventListener("change", filterCourses));
             categoryCheckboxes.forEach(cb => cb.addEventListener("change", filterCourses));
+            universityCheckboxes.forEach(cb => cb.addEventListener("change", filterCourses));
 
             // Initial filter on load
             filterCourses();
         });
     </script>
+
 </head>
 
 
@@ -394,10 +403,114 @@
                                         </li>
                                     </ul>
                                 </div>
+                                <div class="course-grid__universities course-grid__single" style="margin-top: 30px;">
+                                    <div class="course-grid__title-box" style="margin-bottom: 16px;">
+                                        <h3 class="course-grid__title" style="margin: 0;">UK Universities</h3>
+                                        <div class="course-grid__title-shape-1">
+                                            <img src="assets/images/shapes/course-grid-title-shape-1.png" alt="" />
+                                        </div>
+                                    </div>
+                                    <ul class="list-unstyled course-grid__list-item"
+                                        style="list-style: none; padding: 0; margin: 0;">
+                                        <li style="display: flex; align-items: center; margin-bottom: 20px;">
+                                            <label style="cursor: pointer; display: flex; align-items: center;">
+                                                <input type="checkbox" class="university-checkbox"
+                                                    value="University of South Wales, UK"
+                                                    style="position: absolute; opacity: 0; width: 0; height: 0; margin: 0;" />
+                                                <div class="course-grid__list-check" style="
+                                                    position: relative;
+                                                    display: inline-flex;
+                                                    align-items: center;
+                                                    justify-content: center;
+                                                    height: 18px;
+                                                    width: 18px;
+                                                    border: 2px solid #7d3cff;
+                                                    border-radius: 6px;
+                                                    transition: all 0.15s ease-in-out;
+                                                    cursor: pointer;
+                                                "></div>
+                                                <p class="course-grid__list-text"
+                                                    style="margin: 0 0 0 8px; font-size: 16px; line-height: 16px;">
+                                                    University of South Wales, UK
+                                                </p>
+                                            </label>
+                                        </li>
+                                        <li style="display: flex; align-items: center; margin-bottom: 20px;">
+                                            <label style="cursor: pointer; display: flex; align-items: center;">
+                                                <input type="checkbox" class="university-checkbox"
+                                                    value="Swansea University, UK"
+                                                    style="position: absolute; opacity: 0; width: 0; height: 0; margin: 0;" />
+                                                <div class="course-grid__list-check" style="
+                                                    position: relative;
+                                                    display: inline-flex;
+                                                    align-items: center;
+                                                    justify-content: center;
+                                                    height: 18px;
+                                                    width: 18px;
+                                                    border: 2px solid #7d3cff;
+                                                    border-radius: 6px;
+                                                    transition: all 0.15s ease-in-out;
+                                                    cursor: pointer;
+                                                "></div>
+                                                <p class="course-grid__list-text"
+                                                    style="margin: 0 0 0 8px; font-size: 16px; line-height: 16px;">
+                                                    Swansea University, UK
+                                                </p>
+                                            </label>
+                                        </li>
+                                        <li style="display: flex; align-items: center; margin-bottom: 20px;">
+                                            <label style="cursor: pointer; display: flex; align-items: center;">
+                                                <input type="checkbox" class="university-checkbox"
+                                                    value="Aston University, UK"
+                                                    style="position: absolute; opacity: 0; width: 0; height: 0; margin: 0;" />
+                                                <div class="course-grid__list-check" style="
+                                                    position: relative;
+                                                    display: inline-flex;
+                                                    align-items: center;
+                                                    justify-content: center;
+                                                    height: 18px;
+                                                    width: 18px;
+                                                    border: 2px solid #7d3cff;
+                                                    border-radius: 6px;
+                                                    transition: all 0.15s ease-in-out;
+                                                    cursor: pointer;
+                                                "></div>
+                                                <p class="course-grid__list-text"
+                                                    style="margin: 0 0 0 8px; font-size: 16px; line-height: 16px;">
+                                                    Aston University, UK
+                                                </p>
+                                            </label>
+                                        </li>
+                                        <li style="display: flex; align-items: center; margin-bottom: 20px;">
+                                            <label style="cursor: pointer; display: flex; align-items: center;">
+                                                <input type="checkbox" class="university-checkbox"
+                                                    value="Brunel University of London, UK"
+                                                    style="position: absolute; opacity: 0; width: 0; height: 0; margin: 0;" />
+                                                <div class="course-grid__list-check" style="
+                                                    position: relative;
+                                                    display: inline-flex;
+                                                    align-items: center;
+                                                    justify-content: center;
+                                                    height: 18px;
+                                                    width: 18px;
+                                                    border: 2px solid #7d3cff;
+                                                    border-radius: 6px;
+                                                    transition: all 0.15s ease-in-out;
+                                                    cursor: pointer;
+                                                "></div>
+                                                <p class="course-grid__list-text"
+                                                    style="margin: 0 0 0 8px; font-size: 16px; line-height: 16px;">
+                                                    Brunel University of London, UK
+                                                </p>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+
                                 <div class="course-grid__discount course-grid__single">
                                     <div class="course-grid__discount-shape-bg" style="
                         background-image: url(assets/images/shapes/course-grid-discount-shape-bg.png);
-                      "></div>
+                        "></div>
                                     <h4 class="course-grid__discount-title">20% Discount</h4>
                                     <p class="course-grid__discount-text">
                                         is simply dummy text of the printing <br />

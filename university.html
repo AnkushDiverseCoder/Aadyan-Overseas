@@ -62,120 +62,169 @@
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
     <script type="module">
-        import uk from './assets/js/courseData.js'; // Adjust path as needed
+    import data from './assets/js/universityData.js';
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const courseContainer = document.getElementById('course-container');
+    document.addEventListener('DOMContentLoaded', () => {
+        const courseContainer = document.getElementById('course-container');
+        const universityList = document.getElementById('university-list');
+        const categoryList = document.getElementById('category-list');
 
-            // Render Courses
-            uk.forEach(course => {
+        const universities = new Set();
+        const categories = new Set();
+        const courses = [];
+
+        // Country flag CDN URLs
+        const flagMap = {
+            "United States": "https://flagcdn.com/w320/us.png",
+            "United Kingdom": "https://flagcdn.com/w320/gb.png",
+            "Canada": "https://flagcdn.com/w320/ca.png",
+            "Australia": "https://flagcdn.com/w320/au.png"
+        };
+
+        const countryCourseCount = {};
+
+        // Step 1: Flatten data and attach flag as instructor_avatar
+        Object.keys(data[0]).forEach(country => {
+            const courseList = data[0][country];
+            countryCourseCount[country] = courseList.length;
+
+            courseList.forEach(course => {
+                const modifiedImage = {
+                    ...course.image,
+                    instructor_avatar: flagMap[country] || course.image.instructor_avatar
+                };
+
+                courses.push({
+                    title: course.title,
+                    university: country,
+                    category: course.category || "General",
+                    image: modifiedImage
+                });
+
+                universities.add(country);
+                categories.add(course.category || "General");
+            });
+        });
+
+        // Create university checkboxes
+        universities.forEach(university => {
+            const li = document.createElement('li');
+            li.style = "display: flex; align-items: center; margin-bottom: 20px;";
+            li.innerHTML = `
+                <label style="cursor: pointer; display: flex; align-items: center;">
+                    <input type="checkbox" class="university-checkbox" value="${university}" style="position: absolute; opacity: 0; width: 0; height: 0; margin: 0;" />
+                    <div class="course-grid__list-check" style="
+                        position: relative;
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 18px;
+                        width: 18px;
+                        border: 2px solid #7d3cff;
+                        border-radius: 6px;
+                        transition: all 0.15s ease-in-out;
+                        cursor: pointer;
+                    "></div>
+                    <p class="course-grid__list-text" style="margin: 0 0 0 8px; font-size: 16px; line-height: 16px;">
+                        ${university}
+                    </p>
+                </label>
+            `;
+            universityList.appendChild(li);
+        });
+
+        // Create category checkboxes
+        categories.forEach(category => {
+            const li = document.createElement('li');
+            li.style = "display: flex; align-items: center; margin-bottom: 20px;";
+            li.innerHTML = `
+                <label style="cursor: pointer; display: flex; align-items: center;">
+                    <input type="checkbox" class="category-checkbox" value="${category}" style="position: absolute; opacity: 0; width: 0; height: 0; margin: 0;" />
+                    <div class="course-grid__list-check" style="
+                        position: relative;
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 18px;
+                        width: 18px;
+                        border: 2px solid #7d3cff;
+                        border-radius: 6px;
+                        transition: all 0.15s ease-in-out;
+                        cursor: pointer;
+                    "></div>
+                    <p class="course-grid__list-text" style="margin: 0 0 0 8px; font-size: 16px; line-height: 16px;">
+                        ${category}
+                    </p>
+                </label>
+            `;
+            categoryList.appendChild(li);
+        });
+
+        // Render course cards
+        function renderCourses(filteredData = courses) {
+            courseContainer.innerHTML = '';
+            filteredData.forEach(course => {
                 const courseCard = document.createElement('div');
                 courseCard.className = 'course-card';
-                courseCard.setAttribute('data-type', "paid"); // or "free" if dynamic
-                courseCard.setAttribute('data-category', "uk"); // Change as per actual data
-                courseCard.setAttribute('data-university', course.university); // Add university for filtering
-
+                courseCard.setAttribute('data-category', course.category);
+                courseCard.setAttribute('data-university', course.university);
                 courseCard.style = `
-                flex: 1 1 300px;
-                background-color: white;
-                border-radius: 10px;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-                padding: 20px;
-                box-sizing: border-box;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                min-width: 280px;
-            `;
+                    flex: 1 1 300px;
+                    background-color: white;
+                    border-radius: 10px;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+                    padding: 20px;
+                    box-sizing: border-box;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    min-width: 280px;
+                `;
+
+                const universityText = course.university;
+                const totalCoursesText = `Total Courses: ${countryCourseCount[course.university] || 0}`;
 
                 courseCard.innerHTML = `
-                <h3 style="font-size: 18px; margin: 0 0 10px; color: #111">${course.title}</h3>
-                <div style="display: flex; align-items: center; margin-bottom: 15px;">
-                    <img src="${course.image.university_logo}" alt="University Logo" style="
-                        width: 30px;
-                        height: 30px;
-                        border-radius: 5px;
-                        margin-right: 10px;
-                    " />
-                    <p style="
-                        margin: 0;
-                        font-size: 14px;
-                        color: #444;
-                        flex: 1;
-                    ">${course.university}</p>
-                    <img src="${course.image.instructor_avatar}" alt="Instructor" style="
-                        width: 30px;
-                        height: 30px;
-                        border-radius: 50%;
-                        object-fit: cover;
-                    " />
-                </div>
-                <div style="display: flex; align-items: center; justify-content: space-between;">
-                    <div style="
-                        font-size: 16px;
-                        font-weight: 600;
-                        color: #7d3cff;
-                    ">${course.price}</div>
-                    <div style="
-                        background-color: #e5dcff;
-                        color: #7d3cff;
-                        font-size: 12px;
-                        padding: 4px 8px;
-                        border-radius: 5px;
-                        font-weight: 600;
-                        cursor: pointer;
-                        user-select: none;
-                    ">${course.category || "General"}</div>
-                </div>
-            `;
-
+                    <h3 style="font-size: 18px; margin: 0 0 10px; color: #111">${course.title}</h3>
+                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                        <img src="${course.image.university_logo}" alt="University Logo" style="width: 30px; height: 30px; border-radius: 5px; margin-right: 10px;" />
+                        <p style="margin: 0; font-size: 14px; color: #444; flex: 1;">${universityText}</p>
+                        <img src="${course.image.instructor_avatar}" alt="Country Flag" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;" />
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <div style="font-size: 16px; font-weight: 600; color: #7d3cff;">${course.price || ''}</div>
+                        <div style="background-color: #e5dcff; color: #7d3cff; font-size: 12px; padding: 4px 8px; border-radius: 5px; font-weight: 600; cursor: pointer; user-select: none;">
+                            ${totalCoursesText}
+                        </div>
+                    </div>
+                `;
                 courseContainer.appendChild(courseCard);
             });
+        }
 
-            // Filtering logic
-            const radios = document.querySelectorAll('input[name="myRadios"]');
-            const categoryCheckboxes = document.querySelectorAll(".category-checkbox");
-            const universityCheckboxes = document.querySelectorAll(".university-checkbox");
-            const courses = document.querySelectorAll(".course-card");
+        function filterCourses() {
+            const selectedCategories = Array.from(document.querySelectorAll(".category-checkbox:checked")).map(cb => cb.value);
+            const selectedUniversities = Array.from(document.querySelectorAll(".university-checkbox:checked")).map(cb => cb.value);
 
-            function filterCourses() {
-                const selectedType = document.querySelector('input[name="myRadios"]:checked').value;
+            const filtered = courses.filter(course => {
+                const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(course.category);
+                const universityMatch = selectedUniversities.length === 0 || selectedUniversities.includes(course.university);
+                return categoryMatch && universityMatch;
+            });
 
-                const selectedCategories = Array.from(categoryCheckboxes)
-                    .filter(cb => cb.checked)
-                    .map(cb => cb.value);
+            renderCourses(filtered);
+        }
 
-                const selectedUniversities = Array.from(universityCheckboxes)
-                    .filter(cb => cb.checked)
-                    .map(cb => cb.value);
-
-                courses.forEach(course => {
-                    const courseType = course.getAttribute("data-type");
-                    const courseCategory = course.getAttribute("data-category");
-                    const courseUniversity = course.getAttribute("data-university");
-
-                    const typeMatch = selectedType === courseType;
-                    const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(courseCategory);
-                    const universityMatch = selectedUniversities.length === 0 || selectedUniversities.includes(courseUniversity);
-
-                    if (typeMatch && categoryMatch && universityMatch) {
-                        course.style.display = "";
-                    } else {
-                        course.style.display = "none";
-                    }
-                });
+        document.addEventListener("change", (e) => {
+            if (e.target.classList.contains("category-checkbox") || e.target.classList.contains("university-checkbox")) {
+                filterCourses();
             }
-
-            // Add event listeners for filters
-            radios.forEach(radio => radio.addEventListener("change", filterCourses));
-            categoryCheckboxes.forEach(cb => cb.addEventListener("change", filterCourses));
-            universityCheckboxes.forEach(cb => cb.addEventListener("change", filterCourses));
-
-            // Initial filter on load
-            filterCourses();
         });
-    </script>
 
+        // Initial render
+        renderCourses();
+    });
+</script>
 </head>
 
 
@@ -324,29 +373,11 @@
         <section class="course-grid">
             <div class="container">
                 <div class="row">
+                    <!-- Sidebar Filters -->
                     <div class="col-xl-4 col-lg-5">
                         <div class="course-grid__left">
                             <div class="course-grid__sidebar">
-                                <div class="course-grid__price-filter course-grid__single">
-                                    <div class="course-grid__title-box">
-                                        <h3 class="course-grid__title">Price Filter</h3>
-                                        <div class="course-grid__title-shape-1">
-                                            <img src="assets/images/shapes/course-grid-title-shape-1.png" alt="" />
-                                        </div>
-                                    </div>
-                                    <div class="course-grid__price-filter-free-and-paid-course">
-                                        <label class="custom-radio">
-                                            <input type="radio" name="myRadios" value="paid" checked />
-                                            <span class="radio-dot"></span>
-                                            <span class="radio-text">Paid Course</span>
-                                        </label>
-                                        <label class="custom-radio">
-                                            <input type="radio" name="myRadios" value="free" />
-                                            <span class="radio-dot"></span>
-                                            <span class="radio-text">Free Course</span>
-                                        </label>
-                                    </div>
-                                </div>
+                                <!-- Categories -->
                                 <div class="course-grid__categories course-grid__single"
                                     style="position: relative; display: block;">
                                     <div class="course-grid__title-box" style="margin-bottom: 16px;">
@@ -355,55 +386,13 @@
                                             <img src="assets/images/shapes/course-grid-title-shape-1.png" alt="" />
                                         </div>
                                     </div>
-                                    <ul class="list-unstyled course-grid__list-item"
+                                    <ul id="category-list" class="list-unstyled course-grid__list-item"
                                         style="list-style: none; padding: 0; margin: 0;">
-                                        <li style="display: flex; align-items: center; margin-bottom: 20px;">
-                                            <label style="cursor: pointer; display: flex; align-items: center;">
-                                                <input type="checkbox" class="category-checkbox" value="uk"
-                                                    style="position: absolute; opacity: 0; width: 0; height: 0; margin: 0;" />
-                                                <div class="course-grid__list-check" style="
-                                                    position: relative;
-                                                    display: inline-flex;
-                                                    align-items: center;
-                                                    justify-content: center;
-                                                    height: 18px;
-                                                    width: 18px;
-                                                    border: 2px solid #7d3cff;
-                                                    border-radius: 6px;
-                                                    transition: all 0.15s ease-in-out;
-                                                    cursor: pointer;
-                                                    "></div>
-                                                <p class="course-grid__list-text"
-                                                    style="margin: 0 0 0 8px; font-size: 16px; line-height: 16px;">
-                                                    UK
-                                                </p>
-                                            </label>
-                                        </li>
-
-                                        <li style="display: flex; align-items: center; margin-bottom: 20px;">
-                                            <label style="cursor: pointer; display: flex; align-items: center;">
-                                                <input type="checkbox" class="category-checkbox" value="programming"
-                                                    style="position: absolute; opacity: 0; width: 0; height: 0; margin: 0;" />
-                                                <div class="course-grid__list-check" style="
-                                                    position: relative;
-                                                    display: inline-flex;
-                                                    align-items: center;
-                                                    justify-content: center;
-                                                    height: 18px;
-                                                    width: 18px;
-                                                    border: 2px solid #7d3cff;
-                                                    border-radius: 6px;
-                                                    transition: all 0.15s ease-in-out;
-                                                    cursor: pointer;
-                                                        "></div>
-                                                <p class="course-grid__list-text"
-                                                    style="margin: 0 0 0 8px; font-size: 16px; line-height: 16px;">
-                                                    Programming & Tech (25)
-                                                </p>
-                                            </label>
-                                        </li>
+                                        <!-- Dynamic Category Checkboxes -->
                                     </ul>
                                 </div>
+
+                                <!-- Universities -->
                                 <div class="course-grid__universities course-grid__single" style="margin-top: 30px;">
                                     <div class="course-grid__title-box" style="margin-bottom: 16px;">
                                         <h3 class="course-grid__title" style="margin: 0;">UK Universities</h3>
@@ -411,107 +400,17 @@
                                             <img src="assets/images/shapes/course-grid-title-shape-1.png" alt="" />
                                         </div>
                                     </div>
-                                    <ul class="list-unstyled course-grid__list-item"
+                                    <ul id="university-list" class="list-unstyled course-grid__list-item"
                                         style="list-style: none; padding: 0; margin: 0;">
-                                        <li style="display: flex; align-items: center; margin-bottom: 20px;">
-                                            <label style="cursor: pointer; display: flex; align-items: center;">
-                                                <input type="checkbox" class="university-checkbox"
-                                                    value="University of South Wales, UK"
-                                                    style="position: absolute; opacity: 0; width: 0; height: 0; margin: 0;" />
-                                                <div class="course-grid__list-check" style="
-                                                    position: relative;
-                                                    display: inline-flex;
-                                                    align-items: center;
-                                                    justify-content: center;
-                                                    height: 18px;
-                                                    width: 18px;
-                                                    border: 2px solid #7d3cff;
-                                                    border-radius: 6px;
-                                                    transition: all 0.15s ease-in-out;
-                                                    cursor: pointer;
-                                                "></div>
-                                                <p class="course-grid__list-text"
-                                                    style="margin: 0 0 0 8px; font-size: 16px; line-height: 16px;">
-                                                    University of South Wales, UK
-                                                </p>
-                                            </label>
-                                        </li>
-                                        <li style="display: flex; align-items: center; margin-bottom: 20px;">
-                                            <label style="cursor: pointer; display: flex; align-items: center;">
-                                                <input type="checkbox" class="university-checkbox"
-                                                    value="Swansea University, UK"
-                                                    style="position: absolute; opacity: 0; width: 0; height: 0; margin: 0;" />
-                                                <div class="course-grid__list-check" style="
-                                                    position: relative;
-                                                    display: inline-flex;
-                                                    align-items: center;
-                                                    justify-content: center;
-                                                    height: 18px;
-                                                    width: 18px;
-                                                    border: 2px solid #7d3cff;
-                                                    border-radius: 6px;
-                                                    transition: all 0.15s ease-in-out;
-                                                    cursor: pointer;
-                                                "></div>
-                                                <p class="course-grid__list-text"
-                                                    style="margin: 0 0 0 8px; font-size: 16px; line-height: 16px;">
-                                                    Swansea University, UK
-                                                </p>
-                                            </label>
-                                        </li>
-                                        <li style="display: flex; align-items: center; margin-bottom: 20px;">
-                                            <label style="cursor: pointer; display: flex; align-items: center;">
-                                                <input type="checkbox" class="university-checkbox"
-                                                    value="Aston University, UK"
-                                                    style="position: absolute; opacity: 0; width: 0; height: 0; margin: 0;" />
-                                                <div class="course-grid__list-check" style="
-                                                    position: relative;
-                                                    display: inline-flex;
-                                                    align-items: center;
-                                                    justify-content: center;
-                                                    height: 18px;
-                                                    width: 18px;
-                                                    border: 2px solid #7d3cff;
-                                                    border-radius: 6px;
-                                                    transition: all 0.15s ease-in-out;
-                                                    cursor: pointer;
-                                                "></div>
-                                                <p class="course-grid__list-text"
-                                                    style="margin: 0 0 0 8px; font-size: 16px; line-height: 16px;">
-                                                    Aston University, UK
-                                                </p>
-                                            </label>
-                                        </li>
-                                        <li style="display: flex; align-items: center; margin-bottom: 20px;">
-                                            <label style="cursor: pointer; display: flex; align-items: center;">
-                                                <input type="checkbox" class="university-checkbox"
-                                                    value="Brunel University of London, UK"
-                                                    style="position: absolute; opacity: 0; width: 0; height: 0; margin: 0;" />
-                                                <div class="course-grid__list-check" style="
-                                                    position: relative;
-                                                    display: inline-flex;
-                                                    align-items: center;
-                                                    justify-content: center;
-                                                    height: 18px;
-                                                    width: 18px;
-                                                    border: 2px solid #7d3cff;
-                                                    border-radius: 6px;
-                                                    transition: all 0.15s ease-in-out;
-                                                    cursor: pointer;
-                                                "></div>
-                                                <p class="course-grid__list-text"
-                                                    style="margin: 0 0 0 8px; font-size: 16px; line-height: 16px;">
-                                                    Brunel University of London, UK
-                                                </p>
-                                            </label>
-                                        </li>
+                                        <!-- Dynamic University Checkboxes -->
                                     </ul>
                                 </div>
 
+                                <!-- Discount Promo -->
                                 <div class="course-grid__discount course-grid__single">
-                                    <div class="course-grid__discount-shape-bg" style="
-                        background-image: url(assets/images/shapes/course-grid-discount-shape-bg.png);
-                        "></div>
+                                    <div class="course-grid__discount-shape-bg"
+                                        style="background-image: url(assets/images/shapes/course-grid-discount-shape-bg.png);">
+                                    </div>
                                     <h4 class="course-grid__discount-title">20% Discount</h4>
                                     <p class="course-grid__discount-text">
                                         is simply dummy text of the printing <br />
@@ -528,17 +427,15 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Course Grid -->
                     <div class="col-xl-8 col-lg-7">
                         <div class="course-grid__right">
                             <div class="course-grid__right-content-box"
                                 style="padding: 20px; background-color: #f7f8fa">
-                                <div style="
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 20px;
-                    justify-content: space-between;
-                " id="course-container">
-                                    <!-- Courses will be dynamically inserted here -->
+                                <div id="course-container"
+                                    style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between;">
+                                    <!-- Courses Render Dynamically Here -->
                                 </div>
                             </div>
                         </div>
@@ -547,7 +444,6 @@
             </div>
         </section>
         <!--Course Grid End-->
-
         <!--Newsletter Two Start -->
         <section class="newsletter-two">
             <div class="container">
@@ -557,7 +453,7 @@
                     </div>
                     <div class="newsletter-two__inner-content">
                         <div class="newsletter-two__shape-bg" style="
-                  background-image: url(assets/images/shapes/newsletter-two-shape-bg.png);
+                    background-image: url(assets/images/shapes/newsletter-two-shape-bg.png);
                 "></div>
                         <div class="newsletter-two__like">
                             <img src="assets/images/shapes/newsletter-two-like.png" alt="" />
